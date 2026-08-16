@@ -1,4 +1,4 @@
-const CACHE = 'power-pwa-v5_0';
+const CACHE = 'power-pwa-v5_1';
 const ASSETS = [
   './',
   './index.html?v=5',
@@ -7,14 +7,14 @@ const ASSETS = [
   './manifest.webmanifest?v=5',
   './icon-192.png?v=5',
   './icon-512.png?v=5',
-  './media/videos/squat.mp4',
-  './media/videos/incline_pushup.mp4',
-  './media/videos/glute_bridge.mp4',
-  './media/videos/plank.mp4',
-  './media/images/squat_triptych.png',
-  './media/images/incline_triptych.png',
-  './media/images/glute_triptych.png',
-  './media/images/plank_triptych.png'
+  './squat.mp4',
+  './incline_pushup.mp4',
+  './glute_bridge.mp4',
+  './plank.mp4',
+  './squat_triptych.png',
+  './incline_triptych.png',
+  './glute_triptych.png',
+  './plank_triptych.png'
 ];
 self.addEventListener('install', event => {
   self.skipWaiting();
