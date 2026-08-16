@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="力量 Power" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>力量 Power</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow" id="todayLabel">TODAY</p>
+        <h1>力量 <span>Power</span></h1>
+      </div>
+      <button class="icon-btn" id="resetTodayBtn" aria-label="重置今日">↻</button>
+    </header>
+
+    <main id="view"></main>
+
+    <nav class="bottom-nav">
+      <button data-route="home" class="nav-item active"><span>⌂</span><small>首页</small></button>
+      <button data-route="train" class="nav-item"><span>◫</span><small>训练</small></button>
+      <button data-route="food" class="nav-item"><span>◉</span><small>饮食</small></button>
+      <button data-route="data" class="nav-item"><span>⌁</span><small>数据</small></button>
+      <button data-route="me" class="nav-item"><span>●</span><small>我的</small></button>
+    </nav>
+  </div>
+
+  <dialog id="modal">
+    <div class="modal-card" id="modalContent"></div>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
