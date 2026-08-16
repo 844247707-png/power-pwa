@@ -1,6 +1,6 @@
-const APP_VERSION = 'v4.2';
+const APP_VERSION = 'v5.0';
 const $ = s => document.querySelector(s);
-const stateKey = 'power-pwa-v4_2';
+const stateKey = 'power-pwa-v5_0';
 
 const plan = [
   {day:1,title:'全身训练 A',minutes:35,exercises:[['徒手深蹲','10 次','3 组'],['斜板俯卧撑','8–12 次','3 组'],['臀桥','12 次','3 组'],['Bird Dog','每侧 8 次','2 组'],['平板支撑','30–45 秒','3 组']]},
@@ -36,11 +36,11 @@ const mealsByDay = {
 };
 
 const exerciseLibrary = [
-  {name:'徒手深蹲', category:'下肢 · 臀腿', visual:'squat', tags:['入门','下肢','核心稳定'], videoQuery:'bodyweight squat tutorial', videoLabel:'深蹲教学视频', summary:'最基础也最重要的下肢动作之一，练腿、臀和核心稳定。', points:['双脚与肩同宽，脚尖自然朝前或略微外开。','下蹲时屁股向后坐，像坐椅子。','膝盖方向和脚尖一致，不内扣。','站起时脚掌稳稳踩地，臀腿一起发力。'], errors:['膝盖内扣。','脚跟离地。','弯腰过多，胸口塌陷。','只蹲膝盖，不会向后坐臀。'], fix:['把注意力放在“屁股向后坐”。','想象把地板踩开，让膝盖朝脚尖方向走。','如果平衡差，可以先面对椅子做半蹲。'], breath:'下蹲吸气，站起呼气。'},
-  {name:'斜板俯卧撑', category:'上肢 · 胸肩三头', visual:'incline_pushup', tags:['入门','胸肩','居家'], videoQuery:'incline push up tutorial', videoLabel:'斜板俯卧撑视频', summary:'用桌沿、床沿或沙发扶手完成，更适合刚开始练俯卧撑的人。', points:['双手撑在稳定支撑面上，身体从头到脚保持一条线。','手掌略宽于肩。','下降时胸口靠近支撑面。','推起时不要耸肩。'], errors:['塌腰。','屁股撅得太高。','脖子前伸。','手肘完全外张。'], fix:['先收紧腹部和臀部，再开始动作。','如果太难，把支撑点抬高一些。'], breath:'下降吸气，推起呼气。'},
-  {name:'臀桥', category:'臀部 · 后链', visual:'glute_bridge', tags:['入门','臀部','保护腰'], videoQuery:'glute bridge tutorial', videoLabel:'臀桥视频', summary:'帮助找到臀部发力感，非常适合久坐人群和你的当前阶段。', points:['仰卧屈膝，双脚踩地。','抬起臀部到肩—髋—膝大致成一直线。','顶部停顿 1 秒，主动夹臀。','全程尽量让力从臀部发出，而不是腰。'], errors:['用腰猛顶。','脚离身体太远。','动作过快。'], fix:['把脚收近一点。','想象“把屁股抬起来”，顶部短暂停住。'], breath:'抬起呼气，放下吸气。'},
+  {name:'徒手深蹲', category:'下肢 · 臀腿', visual:'squat', tags:['入门','下肢','核心稳定'], localVideo:'./media/videos/squat.mp4', localPhoto:'./media/images/squat_triptych.png', videoQuery:'bodyweight squat tutorial', videoLabel:'深蹲教学视频', summary:'最基础也最重要的下肢动作之一，练腿、臀和核心稳定。', points:['双脚与肩同宽，脚尖自然朝前或略微外开。','下蹲时屁股向后坐，像坐椅子。','膝盖方向和脚尖一致，不内扣。','站起时脚掌稳稳踩地，臀腿一起发力。'], errors:['膝盖内扣。','脚跟离地。','弯腰过多，胸口塌陷。','只蹲膝盖，不会向后坐臀。'], fix:['把注意力放在“屁股向后坐”。','想象把地板踩开，让膝盖朝脚尖方向走。','如果平衡差，可以先面对椅子做半蹲。'], breath:'下蹲吸气，站起呼气。'},
+  {name:'斜板俯卧撑', category:'上肢 · 胸肩三头', visual:'incline_pushup', tags:['入门','胸肩','居家'], localVideo:'./media/videos/incline_pushup.mp4', localPhoto:'./media/images/incline_triptych.png', videoQuery:'incline push up tutorial', videoLabel:'斜板俯卧撑视频', summary:'用桌沿、床沿或沙发扶手完成，更适合刚开始练俯卧撑的人。', points:['双手撑在稳定支撑面上，身体从头到脚保持一条线。','手掌略宽于肩。','下降时胸口靠近支撑面。','推起时不要耸肩。'], errors:['塌腰。','屁股撅得太高。','脖子前伸。','手肘完全外张。'], fix:['先收紧腹部和臀部，再开始动作。','如果太难，把支撑点抬高一些。'], breath:'下降吸气，推起呼气。'},
+  {name:'臀桥', category:'臀部 · 后链', visual:'glute_bridge', tags:['入门','臀部','保护腰'], localVideo:'./media/videos/glute_bridge.mp4', localPhoto:'./media/images/glute_triptych.png', videoQuery:'glute bridge tutorial', videoLabel:'臀桥视频', summary:'帮助找到臀部发力感，非常适合久坐人群和你的当前阶段。', points:['仰卧屈膝，双脚踩地。','抬起臀部到肩—髋—膝大致成一直线。','顶部停顿 1 秒，主动夹臀。','全程尽量让力从臀部发出，而不是腰。'], errors:['用腰猛顶。','脚离身体太远。','动作过快。'], fix:['把脚收近一点。','想象“把屁股抬起来”，顶部短暂停住。'], breath:'抬起呼气，放下吸气。'},
   {name:'Bird Dog', category:'核心 · 稳定', visual:'bird_dog', tags:['核心','稳定','护腰'], videoQuery:'bird dog exercise tutorial', videoLabel:'Bird Dog 视频', summary:'很适合练习抗旋转和躯干稳定。', points:['四点跪姿，肩在手上方，髋在膝上方。','一侧手向前、对侧腿向后伸。','腰背尽量稳定，不左右晃动。','动作慢，停顿一下再回位。'], errors:['抬得过高导致腰反弓。','身体左右扭。'], fix:['抬到和身体平行即可。','动作速度减慢，先少做几次。'], breath:'伸展时呼气，回位吸气。'},
-  {name:'平板支撑', category:'核心', visual:'plank', tags:['核心','耐力','基础'], videoQuery:'plank tutorial proper form', videoLabel:'平板支撑视频', summary:'训练前侧核心耐力，但前提是姿势正确。', points:['肩膀在手肘正上方。','头、背、臀尽量成一直线。','腹部收紧，臀部轻微夹紧。','保持正常呼吸。'], errors:['塌腰。','屁股抬太高。','憋气。','耸肩。'], fix:['先把秒数降低到能稳定保持姿势的时长。','想象肚脐轻轻收向脊柱。'], breath:'持续自然呼吸，不要憋气。'},
+  {name:'平板支撑', category:'核心', visual:'plank', tags:['核心','耐力','基础'], localVideo:'./media/videos/plank.mp4', localPhoto:'./media/images/plank_triptych.png', videoQuery:'plank tutorial proper form', videoLabel:'平板支撑视频', summary:'训练前侧核心耐力，但前提是姿势正确。', points:['肩膀在手肘正上方。','头、背、臀尽量成一直线。','腹部收紧，臀部轻微夹紧。','保持正常呼吸。'], errors:['塌腰。','屁股抬太高。','憋气。','耸肩。'], fix:['先把秒数降低到能稳定保持姿势的时长。','想象肚脐轻轻收向脊柱。'], breath:'持续自然呼吸，不要憋气。'},
   {name:'后撤弓步', category:'下肢 · 平衡', visual:'reverse_lunge', tags:['腿臀','平衡','单侧'], videoQuery:'reverse lunge tutorial', videoLabel:'后撤弓步视频', summary:'比前弓步更容易控制，对初学者更友好。', points:['站直后单脚向后迈。','前脚脚掌踩稳，躯干保持直立。','后膝向地面方向下降。','前腿发力回到起始。'], errors:['身体前扑。','前膝过度内扣。','步幅太窄。'], fix:['后撤时迈大一点。','可扶墙先练平衡。'], breath:'下去吸气，站起呼气。'},
   {name:'Dead Bug', category:'核心 · 协调', visual:'dead_bug', tags:['核心','协调','护腰'], videoQuery:'dead bug exercise tutorial', videoLabel:'Dead Bug 视频', summary:'帮助你在动态动作里保持腰部稳定。', points:['仰卧，腰背轻贴地面。','一侧手和对侧腿缓慢伸展。','动作过程中腰不要离地。','速度慢而稳定。'], errors:['伸腿时腰拱起来。','动作太快。'], fix:['缩小动作幅度。','先只练腿或只练手。'], breath:'伸展呼气，回位吸气。'},
   {name:'侧平板', category:'核心 · 侧链', visual:'side_plank', tags:['核心','侧腹','稳定'], videoQuery:'side plank tutorial', videoLabel:'侧平板视频', summary:'非常适合补足侧向核心稳定。', points:['手肘在肩正下方。','膝支撑版适合初学者。','从头到膝（或脚）保持成线。','不要让身体向前翻或后倒。'], errors:['肩膀耸起。','臀部下沉。'], fix:['先做膝支撑版。','缩短时间但保证姿势漂亮。'], breath:'保持均匀呼吸。'},
@@ -66,7 +66,6 @@ let route = 'home';
 let training = null;
 let stretchSession = null;
 let timerId = null;
-let videoOpenQuery = null;
 
 function save(){localStorage.setItem(stateKey,JSON.stringify(state))}
 function pct(a,b){return Math.min(100,Math.max(0,Math.round((a/b)*100 || 0)))}
@@ -115,7 +114,7 @@ function homeView(){
     <div class="section-title"><h2>今日动作预览</h2><button class="ghost-btn compact" onclick="showExercise('${firstDemo.name}')">查看演示</button></div>
     <div class="card preview-line" onclick="showExercise('${firstDemo.name}')">
       <div class="mini-visual">${exerciseSVG(firstDemo.visual,'start')}</div>
-      <div><strong>${firstDemo.name}</strong><div class="mini">含视频、要点、常见错误与纠正建议</div></div>
+      <div><strong>${firstDemo.name}</strong><div class="mini">${firstDemo.localVideo ? '已内置视频与真人参考图' : '含视频、要点、常见错误与纠正建议'}</div></div>
     </div>` : ''}
 
     <div class="section-title"><h2>今日任务</h2><button class="ghost-btn compact" onclick="setRoute('food')">查看饮食</button></div>
@@ -155,7 +154,7 @@ function trainView(){
     <div class="list">${d.exercises.map((x,i)=>`
       <div class="list-item">
         <div><strong>${String(i+1).padStart(2,'0')} · ${x[0]}</strong><div class="mini">${x[1]} · ${x[2]}</div></div>
-        ${findExercise(x[0])? `<button class="ghost-btn compact" onclick="showExercise('${x[0]}')">视频</button>`:''}
+        ${findExercise(x[0])? `<button class="ghost-btn compact" onclick="showExercise('${x[0]}')">${findExercise(x[0]).localVideo ? '演示' : '视频'}</button>`:''}
       </div>`).join('')}
     </div>
   `;
@@ -173,7 +172,7 @@ function trainingView(){
       <div class="mini">第 ${training.set} / ${totalSets} 组</div>
       <p class="note">稳定呼吸，动作质量优先，不要憋气。</p>
       <div class="action-row mt12">
-        ${demo? `<button class="secondary compact" onclick="showExercise('${e[0]}')">查看动作视频</button>`:''}
+        ${demo? `<button class="secondary compact" onclick="showExercise('${e[0]}')">${demo.localVideo ? '查看内置演示' : '查看动作视频'}</button>`:''}
         <button class="ghost-btn compact" onclick="training=null;render()">退出训练</button>
       </div>
       <button class="primary" onclick="completeSet()">完成本组</button>
@@ -235,29 +234,33 @@ function libraryView(){
   const list=exerciseLibrary.filter(x=>state.libraryFilter==='全部' || x.category.startsWith(state.libraryFilter));
   return `
     <div class="tabs">${categories.map(c=>`<button class="${state.libraryFilter===c?'active':''}" onclick="setLibraryFilter('${c}')">${c}</button>`).join('')}</div>
-    <div class="section-title"><h2>动作库</h2><span class="pill">视频 · 要点 · 错误</span></div>
+    <div class="section-title"><h2>动作库</h2><span class="pill">视频 · 参考图 · 要点</span></div>
     <div class="library-grid">${list.map(item=>`
       <div class="library-card" onclick="showExercise('${item.name}')">
         <div class="category">${item.category}</div>
         <div class="visual-box">${exerciseSVG(item.visual,'start')}</div>
         <h3>${item.name}</h3>
         <div class="badge-row">${item.tags.slice(0,3).map(t=>`<span class="badge">${t}</span>`).join('')}</div>
-        <div class="mini">${item.summary}</div>
+        <div class="mini">${item.localVideo ? '已内置视频与真人参考图' : item.summary}</div>
       </div>`).join('')}</div>
-    <p class="foot-note">提示：每个动作页面都增加了视频入口。如果视频无法直接播放，可以点“打开视频教学”在新页面观看。</p>`;
+    <p class="foot-note">目前已内置 4 个动作：徒手深蹲、斜板俯卧撑、臀桥、平板支撑。其他动作可继续补充。</p>`;
 }
 function setLibraryFilter(c){state.libraryFilter=c;save();render()}
 function showExerciseByKeyword(keyword){ const item=exerciseLibrary.find(x=>x.name.includes(keyword)); if(item) showExercise(item.name); }
 function showExercise(name){
   const item=findExercise(name); if(!item) return;
+  const mediaBlock = item.localVideo
+    ? `<div class="video-shell"><video controls playsinline preload="metadata" poster="${item.localPhoto || ''}"><source src="${item.localVideo}" type="video/mp4"></video></div><div class="photo-caption">已内置你上传的视频，可直接在页面内播放，不需要二次跳转。</div>`
+    : `<div class="video-shell"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" src="${videoSrc(item.videoQuery)}" title="${item.videoLabel}"></iframe></div><div class="action-row"><a class="ghost-btn compact" href="${searchHref(item.videoQuery)}" target="_blank" rel="noopener">打开视频教学</a></div>`;
+  const photoBlock = item.localPhoto
+    ? `<hr><strong>真人动作参考图</strong><img class="photo-triptych" src="${item.localPhoto}" alt="${item.name} 真人动作参考图"><div class="photo-caption">上图为根据真实动作逻辑整理的三阶段参考图，可结合上方视频一起看。</div>`
+    : `<div class="visual-box mt16" id="exerciseVisualBox">${exerciseSVG(item.visual,'start')}</div><div class="action-row mt12"><button class="ghost-btn compact" onclick="swapVisual('${item.visual}','start')">起始姿势</button><button class="ghost-btn compact" onclick="swapVisual('${item.visual}','end')">动作过程</button></div>`;
   showModal(`
     <div class="kicker">EXERCISE GUIDE</div>
     <h2>${item.name}</h2>
     <div class="badge-row">${item.tags.map(t=>`<span class="badge">${t}</span>`).join('')}</div>
-    <div class="video-shell"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" src="${videoSrc(item.videoQuery)}" title="${item.videoLabel}"></iframe></div>
-    <div class="action-row"><a class="ghost-btn compact" href="${searchHref(item.videoQuery)}" target="_blank" rel="noopener">打开视频教学</a></div>
-    <div class="visual-box mt16" id="exerciseVisualBox">${exerciseSVG(item.visual,'start')}</div>
-    <div class="action-row mt12"><button class="ghost-btn compact" onclick="swapVisual('${item.visual}','start')">起始姿势</button><button class="ghost-btn compact" onclick="swapVisual('${item.visual}','end')">动作过程</button></div>
+    ${mediaBlock}
+    ${photoBlock}
     <p class="note mt12">${item.summary}</p>
     <hr>
     <strong>动作要点</strong>
@@ -332,6 +335,26 @@ function svgWrap(inner){ return `<svg viewBox="0 0 120 140" xmlns="http://www.w3
 function showModal(html){ $('#modalContent').innerHTML=html; $('#modal').showModal(); }
 function closeModal(){ clearInterval(timerId); $('#modal').close(); }
 window.closeModal=closeModal;
+window.setRoute=setRoute;
+window.startTraining=startTraining;
+window.startStretch=startStretch;
+window.toggleMeal=toggleMeal;
+window.showExercise=showExercise;
+window.showExerciseByKeyword=showExerciseByKeyword;
+window.goPrevDay=goPrevDay;
+window.goNextDay=goNextDay;
+window.completeSet=completeSet;
+window.skipTimer=skipTimer;
+window.toggleStretchTimer=toggleStretchTimer;
+window.nextStretch=nextStretch;
+window.addIntake=addIntake;
+window.setLibraryFilter=setLibraryFilter;
+window.saveLog=saveLog;
+window.saveProfile=saveProfile;
+window.exportData=exportData;
+window.importData=importData;
+window.hardRefresh=hardRefresh;
+window.swapVisual=swapVisual;
 
 function render(){
   clearInterval(timerId);
@@ -343,4 +366,4 @@ function render(){
 }
 render();
 
-if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=4.2').catch(()=>{})); }
+if('serviceWorker' in navigator){ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=5.0').catch(()=>{})); }

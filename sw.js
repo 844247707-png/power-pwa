@@ -1,12 +1,20 @@
-const CACHE = 'power-pwa-v4_2';
+const CACHE = 'power-pwa-v5_0';
 const ASSETS = [
   './',
-  './index.html?v=4',
-  './styles.css?v=4.2',
-  './app.js?v=4.2',
-  './manifest.webmanifest?v=4',
-  './icon-192.png?v=4',
-  './icon-512.png?v=4'
+  './index.html?v=5',
+  './styles.css?v=5.0',
+  './app.js?v=5.0',
+  './manifest.webmanifest?v=5',
+  './icon-192.png?v=5',
+  './icon-512.png?v=5',
+  './media/videos/squat.mp4',
+  './media/videos/incline_pushup.mp4',
+  './media/videos/glute_bridge.mp4',
+  './media/videos/plank.mp4',
+  './media/images/squat_triptych.png',
+  './media/images/incline_triptych.png',
+  './media/images/glute_triptych.png',
+  './media/images/plank_triptych.png'
 ];
 self.addEventListener('install', event => {
   self.skipWaiting();
@@ -32,7 +40,7 @@ self.addEventListener('fetch', event => {
     } catch (err) {
       const cached = await caches.match(event.request);
       if (cached) return cached;
-      return caches.match('./index.html?v=4');
+      return caches.match('./index.html?v=5');
     }
   })());
 });
